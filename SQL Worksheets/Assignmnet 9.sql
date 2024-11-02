@@ -165,3 +165,5 @@ WHERE personname IN (SELECT DISTINCT managername FROM manages);
 -- q) Delete all tuples in the works relation for employees of Axis Bank.
 delete from worksin
 where compname = 'Axis Bank';
+
+commit;
