@@ -99,9 +99,23 @@ select count (Guest_No) from BOOKING
 where date_from like '%08___';
 
 -- List the details of all rooms at the Grosvenor Hotel, including the name of the guest staying in the room, if the room is occupied.
-
+select r.Room_No, r.type, r.price, g.Name
+from room r join BOOKING b on r.ROOM_NO = b.ROOM_NO
+join GUEST g on b.GUEST_NO = g.GUEST_NO
+where b.DATE_TO is NULL;
 
 -- What is the total income from bookings for the Grosvenor Hotel today?
+SELECT SUM(R.Price) AS Total_Income
+FROM Room R
+JOIN Booking B ON R.Hotel_No = B.Hotel_No AND R.Room_No = B.Room_No
+WHERE R.Hotel_No = (SELECT Hotel_No FROM Hotel WHERE Name = 'Grosvenor Hotel')
+  AND CURRENT_DATE BETWEEN B.Date_From AND NVL(B.Date_To, CURRENT_DATE);
+
+
+
 -- List the rooms that are currently unoccupied at the Grosvenor Hotel.
- 
+ select room_no from BOOKING
+ where DATE_TO is not NULL and Date_to < (select sysdate from dual);
+
+ commit;
 
