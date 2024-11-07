@@ -146,6 +146,8 @@ JOIN Prescription P ON P.Id = PM1.PrescriptionId
 WHERE PM1.TradeName = 'Aspirin' AND PM2.TradeName = 'Vitamin';
 
 
+
+
 -- List the SNN of distinct patients who have ʻAspirinʼ prescribed to them by doctor named ʻJohn Smithʼ.
 select distinct p.PATIENT_SSN
 from PRESCRIPTION p

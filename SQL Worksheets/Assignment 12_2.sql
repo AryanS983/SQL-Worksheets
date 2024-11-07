@@ -28,7 +28,6 @@ CREATE TABLE DEPARTMENT (
     MgrStartDate DATE
 );
 
-desc employ;
 
 -- Create DLOCATION table
 CREATE TABLE DLOCATION (
@@ -57,7 +56,11 @@ CREATE TABLE WORKS_ON (
     FOREIGN KEY (PNo) REFERENCES PROJECT(PNo)
 );
 
-
+SELECT * from department;
+SELECT * from employ;
+SELECT * from DLOCATION;
+SELECT * from project;
+SELECT * from WORKS_ON;
 
 -- Insert sample data into DEPARTMENT table
 INSERT INTO DEPARTMENT (DNo, DName, MgrSSN, MgrStartDate) VALUES (1, 'Accounts', 12345, '01-01-2022');

@@ -70,6 +70,11 @@ INSERT INTO Booking (Hotel_No, Guest_No, Date_From, Date_To, Room_No) VALUES (2,
 INSERT INTO Booking (Hotel_No, Guest_No, Date_From, Date_To, Room_No) VALUES (2, 4, TO_DATE('2023-08-05', 'YYYY-MM-DD'), TO_DATE('2023-08-08', 'YYYY-MM-DD'), 202);
 INSERT INTO Booking (Hotel_No, Guest_No, Date_From, Date_To, Room_No) VALUES (1, 5, TO_DATE('2023-08-10', 'YYYY-MM-DD'), TO_DATE('2023-08-12', 'YYYY-MM-DD'), 103);
 
+SELECT * from hotel;
+SELECT * from room;
+SELECT * from guest;
+SELECT * from booking;
+
 
 -- List the names and addresses of all guests in London, alphabetically ordered by name
 SELECT Name, Address 
@@ -93,6 +98,7 @@ select avg(price) from room;
 
 -- What is the total revenue per night from all double rooms?
 select sum(price) from room where type = 'Double';
+
 
 -- How many different guests have made bookings for August?
 select count (Guest_No) from BOOKING

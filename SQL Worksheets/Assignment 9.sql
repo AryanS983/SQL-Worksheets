@@ -114,10 +114,10 @@ WHERE w.salary >= avg_salaries.avg_salary;
 
 
 -- j)  Find the company that has the most employees.
-select compname,count(*)
+select compname,count(personname)
 from worksin
 group by compname
-order by count(*) DESC
+order by count(personname) DESC
 Fetch first 1 row only;
 
 -- k)  Find the company that has the smallest payroll.
@@ -167,3 +167,6 @@ delete from worksin
 where compname = 'Axis Bank';
 
 commit;
+
+select max(salary) from WORKSIN
+where salary < (select max(salary) from WORKSIN);
