@@ -112,16 +112,28 @@ JOIN (
 ) avg_salaries ON w.compname = avg_salaries.compname
 WHERE w.salary >= avg_salaries.avg_salary;
 
+select * from worksin;
+select compname, avg(SALARY)
+from WORKSIN
+GROUP BY compname;
+
+SELECT *
+FROM worksin w
+JOIN (
+    SELECT compname, AVG(salary) AS avg_salary
+    FROM worksin
+    GROUP BY compname
+) avg_salaries ON w.compname = avg_salaries.compname;
 
 -- j)  Find the company that has the most employees.
 select compname,count(personname)
 from worksin
 group by compname
 order by count(personname) DESC
-Fetch first 1 row only;
+fetch first 1 rows only;
 
 -- k)  Find the company that has the smallest payroll.
-SELECT compname
+SELECT compname,sum(SALARY)
 FROM worksin
 GROUP BY compname
 ORDER BY SUM(salary) ASC
@@ -132,7 +144,8 @@ select compname
 from WORKSIN
 where compname <> 'Axis Bank'
 GROUP BY compname
-HAVING Min(salary) > (SELECT AVG(salary) FROM worksin WHERE compname ='Axis Bank');
+HAVING avg(salary) > (SELECT AVG(salary) FROM worksin WHERE compname ='Axis Bank');
+
 
 -- m)     Modify the database so that ABC now lives in Kolkata.
 UPDATE emp
@@ -160,7 +173,8 @@ SET salary = salary *
     END
 WHERE personname IN (SELECT DISTINCT managername FROM manages);
 
- 
+select * from worksin;
+
 
 -- q) Delete all tuples in the works relation for employees of Axis Bank.
 delete from worksin
@@ -168,5 +182,7 @@ where compname = 'Axis Bank';
 
 commit;
 
+-- find the second highest salary of employe
 select max(salary) from WORKSIN
-where salary < (select max(salary) from WORKSIN);
+where salary < (select max(salary) from WORKSIN where compname = 'Axis Bank')
+and compname = 'Axis Bank';

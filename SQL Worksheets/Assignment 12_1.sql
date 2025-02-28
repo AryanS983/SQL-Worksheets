@@ -123,5 +123,8 @@ WHERE R.Hotel_No = (SELECT Hotel_No FROM Hotel WHERE Name = 'Grosvenor Hotel')
  select room_no from BOOKING
  where DATE_TO is not NULL and Date_to < (select sysdate from dual);
 
+
+
+
  commit;
 

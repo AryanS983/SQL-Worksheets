@@ -58,6 +58,13 @@ Where ACCIDENT.ACC_DATE like '%10';
 
 select * from customer;
 
+SELECT count (accident.REPORT#)
+from car 
+join involved on car.LISCENSE# = involved.LISCENSE#
+join accident on involved.REPORT# = accident.REPORT#
+where car.MFR like 'Honda';
+
+
 Select count (ACCIDENT.REPORT#)
 from CUSTOMER
 join Car on CUSTOMER.CID = Car.CID

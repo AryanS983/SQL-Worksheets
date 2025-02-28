@@ -31,11 +31,14 @@ Create Table SALES_ORDER(
     Client_No Varchar2(6) references CLIENT_MASTER(Client_No) on delete Cascade, 
     Order_Date Date , 
     Salesman_No varchar2(6) references SALESMAN_MASTER(Salesman_No) on delete cascade, 
-    Dely_type Char(1) default 'F' Check(Dely_type = 'F' OR Dely_type = 'P'), 
+    Dely_type Char(1) default 'F' Check(Dely_type = 'F' OR Dely_type = 'P'),
     Dely_date Date
 );
 
 SELECT TO_CHAR(sysdate,'DY,DD-Month-YYYY') from dual;
+select to_char(sysdate,'day') from dual;
+
+
 
 create Table SALES_ORDER_DETAILS (
     Order_No Varchar2 (6) references SALES_ORDER(Order_No) on delete cascade, 
@@ -143,6 +146,7 @@ update SALESMAN_MASTER
 SET SAL_AMT = SAL_AMT+1000
 where Salesman_Name='Esha';
 
+select * from SALESMAN_MASTER;
 commit;
 
 -- SELECT
@@ -157,7 +161,8 @@ commit;
 
 -- Assignmnet 6.2
 
--- employee: emp_no, name, dob, sex, address, salary company: comp_no, name, address
+-- employee: emp_no, name, dob, sex, address, salary 
+-- company: comp_no, name, address
 
 -- works: emp_no, comp_no
 
@@ -227,7 +232,7 @@ VALUES (10004, 2004);
 INSERT INTO works (emp_no, comp_no)
 VALUES (10005, 2005);
 
-
+select * from  COMPANY;
 
 --List the employees who work for company ‘2002’
 SELECT employee.name

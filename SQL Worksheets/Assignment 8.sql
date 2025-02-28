@@ -18,6 +18,7 @@ Create Table Doctor(
 );
 
 
+
 Create Table Patient(
     SSN Number(5) PRIMARY KEY,
     FirstName VARCHAR2(20) NOT NULL,
@@ -138,6 +139,8 @@ from PRESCRIPTION_MEDICINE
 group by TradeName
 having Sum(NumOfUnits)>20;
 
+select * from PRESCRIPTION_MEDICINE;
+
 -- List the SSN of patients who have ʻAspirinʼ and ʻVitaminʼ trade names in one prescription.
 SELECT P.Patient_SSN
 FROM Prescription_Medicine PM1
@@ -145,7 +148,9 @@ JOIN Prescription_Medicine PM2 ON PM1.PrescriptionId = PM2.PrescriptionId
 JOIN Prescription P ON P.Id = PM1.PrescriptionId
 WHERE PM1.TradeName = 'Aspirin' AND PM2.TradeName = 'Vitamin';
 
-
+select * from PRESCRIPTION_MEDICINE p1
+join PRESCRIPTION_MEDICINE p2 on p1.PRESCRIPTIONID=p2.PRESCRIPTIONID
+where p1.TRADENAME= 'Aspirin' and p2.TRADENAME='Vitamin';
 
 
 -- List the SNN of distinct patients who have ʻAspirinʼ prescribed to them by doctor named ʻJohn Smithʼ.
@@ -165,3 +170,10 @@ where Pr.DOCTOR_SSN in (SELECT PRIMARYDOCTOR_SSN from PATIENT);
 
 
 Commit;
+
+-- SELECT
+-- from
+-- Where
+-- group by
+-- having
+-- order by 

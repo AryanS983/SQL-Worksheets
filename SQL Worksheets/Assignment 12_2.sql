@@ -121,6 +121,10 @@ update employ
 set salary =salary*1.1
 where SSN in (select SSN from WORKS_ON where PNo = (select PNo from project where PName ='IoT'));
 
+update employ
+set salary =salary*1.1
+where SSN in (select w.SSN from WORKS_ON w join project p on w.PNo = p.PNo where p.PName ='IoT');
+
 select * from employ;
 
 
