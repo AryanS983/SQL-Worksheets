@@ -1,0 +1,15 @@
+1. Design an ER diagram for a Motor Vehicle Branch that administers driving tests and issues driver's licenses. Analyze the requirements by identifying the entities, attributes, relationships, keys, constraints etc. Apply extended entity-relationship features to the design. Defend your design with proper assumptions and justifications. Map the ER model into a relational model.
+
+UPLOAD .DIA FILE AND .JPEG FILE AND .DOC FILE
+
+
+2. Design an ER diagram for an application that models soccer teams, the games they play, and the players in each team. Analyze the requirements by identifying the entities, attributes, relationships, keys, constraints etc. Apply extended entity-relationship features to the design. Defend your design with proper assumptions and justifications. Map the ER model into a relational model.
+
+UPLOAD .DIA FILE AND .JPEG FILE AND .DOC FILE
+
+
+3. Design an ER diagram for an application that models an educational institute having several departments, faculty, students, projects, student hostels etc. Analyze the requirements by identifying the entities, attributes, relationships, keys, constraints etc. Apply extended entity-relationship features to the design. Defend your design with proper assumptions and justifications. Map the ER model into a relational model.
+
+UPLOAD .DIA FILE AND .JPEG FILE AND .DOC FILE
+
+
